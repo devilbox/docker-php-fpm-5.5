@@ -11,7 +11,7 @@
 [![](https://images.microbadger.com/badges/image/devilbox/php-fpm-5.5.svg)](https://microbadger.com/images/devilbox/php-fpm-5.5 "php-fpm-5.5")
 [![License](https://img.shields.io/badge/license-MIT-%233DA639.svg)](https://opensource.org/licenses/MIT)
 
-**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`, `ppc64le`, `s390x`, `mips64le`
+**Available Architectures:**  `amd64`, `i386`, `arm64`, `arm/v7`, `arm/v6`
 
 This repository will provide you a fully functional PHP-FPM 5.5 Docker image built from [official sources](http://php.net) nightly. PHP 5.5 [reached EOL](http://php.net/eol.php) on 10 Jul 2016. It provides the base for [Devilbox PHP-FPM Docker images](https://github.com/devilbox/docker-php-fpm).
 
@@ -25,7 +25,7 @@ Have a look at the following similar Devilbox base images for which no official 
 
 * [PHP-FPM 5.2](https://github.com/devilbox/docker-php-fpm-5.2)
 * [PHP-FPM 5.3](https://github.com/devilbox/docker-php-fpm-5.3)
-* [PHP-FPM 5.5](https://github.com/devilbox/docker-php-fpm-5.5)
+* [PHP-FPM 5.4](https://github.com/devilbox/docker-php-fpm-5.4)
 * [PHP-FPM 5.5](https://github.com/devilbox/docker-php-fpm-5.5)
 * [PHP-FPM 7.4](https://github.com/devilbox/docker-php-fpm-7.4)
 * [PHP-FPM 8.0](https://github.com/devilbox/docker-php-fpm-8.0)
