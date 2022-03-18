@@ -97,13 +97,18 @@ RUN set -eux \
 	fi \
 	\
 	&& ./configure \
-		--host="${gnuArch}" \
+		--build="${gnuArch}" \
 		--with-config-file-path="$PHP_INI_DIR" \
 		--with-config-file-scan-dir="$PHP_INI_DIR/conf.d" \
 		--enable-fpm \
 		--with-fpm-user=www-data \
 		--with-fpm-group=www-data \
 		--disable-cgi \
+# --enable-ftp is included here because ftp_ssl_connect() needs ftp to be compiled statically (see https://github.com/docker-library/php/issues/236)
+		--enable-ftp \
+# --enable-mbstring is included here because otherwise there's no way to get pecl to use it properly (see https://github.com/docker-library/php/issues/195)
+		--enable-mbstring \
+# --enable-mysqlnd is included here because it's harder to compile after the fact than extensions are (since it's a plugin for several extensions, not an extension in itself)
 		--enable-mysqlnd \
 		--with-mysql \
 		--with-curl \
@@ -111,7 +116,13 @@ RUN set -eux \
 		--with-readline \
 		--with-recode \
 		--with-zlib \
+		\
+		#--with-libdir="lib/$debMultiarch" \
+		\
+		${PHP_EXTRA_CONFIGURE_ARGS:-} \
+		\
 	&& make -j"$(nproc)" \
+	&& find -type f -name '*.a' -delete \
 	&& make install \
 	&& make clean \
 	\
